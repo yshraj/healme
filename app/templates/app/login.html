@@ -1,0 +1,127 @@
+{% extends 'app/header.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Healme | Book appointments</title>
+    
+  </head>
+  <body>
+{% block content %}    
+  {% if msg %}
+    <script type="text/javascript">
+      var a="{{msg}}";
+      alert(a);
+    </script>
+    {% endif %}
+    
+
+<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 py-5 pr-md-5">
+            <div class="heading-section heading-section-white ftco-animate mb-5">
+              <span class="subheading"></span>
+              <h2 class="mb-4">Patient Login</h2>
+              <h4 class="mb-4"  style="padding-left: 160px; color: #fff;">Not a member?<span><a href="{% url 'patient_registration' %}" class="doclogin" style="color: #fd7e14;">Register here</a></span></h4>
+              <p></p>
+            </div>
+            {% if error %}
+              {{error}}
+            {% endif %}
+                        <form action="{% url 'login' %}" class="appointment-form ftco-animate" method="POST">
+                          {% csrf_token %}
+                          
+                <div class="form-group">
+                     <input type="text" class="form-control" placeholder="Enter Email id" name="email" required>
+                </div>
+              
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Enter Password" name="password"  >
+                </div>
+            
+              
+              <div class="d-md-flex">
+                <div class="form-group">
+                    <button type="submit" value="Login" class="btn btn-secondary py-3 px-4">Login</button>
+                </div>
+                <div class="form-group ml-md-4">
+                  <input type="submit" value="Forgot Password" class="btn btn-secondary py-3 px-4">
+                 
+                </div>
+              </div>
+              <input type="reset" value="Clear" class="btn btn-secondary py-2 px-4">
+              
+            </form>
+          </div>
+          <div class="col-lg-6 p-5 bg-counter aside-stretch">
+            <h3 class="vr">About Healme Facts</h3>
+            <div class="row pt-4 mt-1">
+              <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 p-5 bg-light">
+                  <div class="text">
+                    <strong class="number" data-number="30">0</strong>
+                    <span>Years of Experienced</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 p-5 bg-light">
+                  <div class="text">
+                    <strong class="number" data-number="4500">0</strong>
+                    <span>Happy Patients</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 p-5 bg-light">
+                  <div class="text">
+                    <strong class="number" data-number="84">0</strong>
+                    <span>Number of Doctors</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 p-5 bg-light">
+                  <div class="text">
+                    <strong class="number" data-number="300">0</strong>
+                    <span>Number of Staffs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+   {% include 'app/footer.html' %}  
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="{% static 'app/js/jquery.min.js' %}"></script>
+  <script src="{% static 'app/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'app/js/popper.min.js' %}"></script>
+  <script src="{% static 'app/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'app/js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'app/js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'app/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'app/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'app/js/aos.js' %}"></script>
+  <script src="{% static 'app/js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'app/js/bootstrap-datepicker.js' %}"></script>
+  <script src="{% static 'app/js/jquery.timepicker.min.js' %}"></script>
+  <script src="{% static 'app/js/scrollax.min.js' %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{% static 'app/js/google-map.js' %}"></script>
+  <script src="{% static 'app/js/main.js' %}"></script>    
+    {% endblock %}
+
+  </body>
+    }
+</html>

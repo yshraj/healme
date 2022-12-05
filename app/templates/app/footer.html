@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<body>
+  <title></title>
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-5">
+              <h2 class="ftco-heading-2 logo">Heal<span>me</span></h2>
+              <p>Healme cares about ypur health. Its important to keep your body healthy.</p>
+            </div>
+            <div class="ftco-footer-widget mb-5">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul style="color: white">
+	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><span class="icon icon-envelope"></span><span class="text">healme9821@gmail.com</span></li>
+	              </ul>
+	            </div>
+
+	            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-5 ml-md-4">
+              <h2 class="ftco-heading-2">Links</h2>
+              <ul class="list-unstyled">
+                <li><a href="{% url 'index' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Patient</a></li>
+                <li><a href="{% url 'doctorlogin' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Doctor</a></li>
+                <li><a href="{% url 'pharmacylogin' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Pharmacy</a></li>
+                <li><a href="{% url 'diagnosticlogin' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Diagnostic</a></li>
+                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+              </ul>
+            </div>
+            <div class="ftco-footer-widget mb-5 ml-md-4">
+              <h2 class="ftco-heading-2">Services</h2>
+              <ul class="list-unstyled">
+                <li><a href="{% url 'dentist' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Dentist</a></li>
+                <li><a href="{% url 'gynecologist' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Gynecologist</a></li>
+                <li><a href="{% url 'physiotherapist' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Physiotherapist</a></li>
+                <li><a href="{% url 'orthopedist' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Orthopedist</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-5">
+              <h2 class="ftco-heading-2">Recent Blog</h2>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url({% static 'app/images/image_1.jpg' %});"></a>
+                <div class="text">
+                  <h3 class="heading" style="color: white">Even the all-powerful Pointing has no control about</h3>
+                  
+                </div>
+              </div>
+              <div class="block-21 mb-5 d-flex">
+                <a class="blog-img mr-4" style="background-image: url({% static 'app/images/image_2.jpg' %});"></a>
+                <div class="text">
+                  <h3 class="heading" style="color: white">Even the all-powerful Pointing has no control about</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+          	<div class="ftco-footer-widget mb-5">
+            	<h2 class="ftco-heading-2">Opening Hours</h2>
+            	<h3 class="open-hours pl-4"><span class="ion-ios-time mr-3"></span>We are open 24/7</h3>
+            </div>
+            <div class="ftco-footer-widget mb-5">
+            	<h2 class="ftco-heading-2">Subscribe Us!</h2>
+              <form action="#" class="subscribe-form">
+                <div class="form-group">
+                  <input type="text" class="form-control mb-2 text-center" placeholder="Enter email address">
+                  <input type="submit" value="Subscribe" class="form-control submit px-3">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>    

@@ -1,0 +1,130 @@
+{% extends 'app/header.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Healme | Book appointments</title>
+</head>
+<body>
+{% block content %}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url();" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread" style="font-size: 80px">Orthopedist</h1>
+            <p class="breadcrumbs"><span></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+{% for i in doctors %}
+<section class="ftco-section ftco-no-pt ftc-no-pb">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0" style="background-image: url({% static 'app/images/doc-3.jpg' %});">
+          </div>
+          <div class="col-md-7 wrap-about py-4 py-md-5 ftco-animate">
+            <div class="heading-section mb-5">
+              <div class="pl-md-5 ml-md-5">
+                <span class="subheading"></span>
+                <h2 class="mb-4" style="font-size: 50px;">Dr. {{i.fname}}</h2>
+              </div>
+            </div>
+            <div class="pl-md-5 ml-md-5 mb-5">
+              <p style="font-size: 20px">{{i.experience}} Years of experience <br> MBBS, MS - Orthopaedics </p>
+              <div class="row mt-5 pt-2">
+                <div class="col-lg-6">
+                  <div class="services-2 d-flex">
+                    <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center "><span class="flaticon-first-aid-kit "></span></div>
+                    <div class="text">
+                      <h3>Timings</h3>
+                      <p>{{i.workingdays}}<br>{{i.morningtime}} & {{i.eveningtime}} </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="services-2 d-flex">
+                    <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-dropper"></span></div>
+                    <div class="text">
+                      <h3>Location </h3>
+                      <p>{{i.address}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="services-2 d-flex">
+                    {% if request.session.fname %}
+                    <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-experiment-results"></span></div>
+                    <div class="text">
+                      <h3>Fees</h3>
+                      <p>&#8377 {{i.fees}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="services-2 d-flex">
+                    <form name="frm" method="post" action="{% url 'appointment' %}">
+                            {% csrf_token %}
+                          <input type="hidden" name="service" value="{{service}}">
+                          <input type="hidden" name="doctor" value="{{i.email}}">
+                           <p class="button-custom order-lg-last mb-0 " style="margin-top: 10px"><a href="{% url 'appointment' %}" ><input type="submit" value="BOOK NOW" class="btn btn-secondary py-3 px-3"></a></p>
+                  
+                  </div>
+                </div>
+                {% else %}
+                  <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-experiment-results"></span></div>
+                    <div class="text">
+                      <h3>Fees</h3>
+                      <p>Login for fees</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="services-2 d-flex">
+                    <p class="button-custom order-lg-last mb-0 " style="margin-top: 10px"><a href="{% url 'login' %}" class="btn btn-secondary py-3 px-3">LOGIN TO BOOK NOW</a></p>
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    {% endfor %}
+   {% include 'app/footer.html' %}  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+
+
+
+
+
+  <script src="{% static 'app/js/jquery.min.js' %}"></script>
+  <script src="{% static 'app/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'app/js/popper.min.js' %}"></script>
+  <script src="{% static 'app/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'app/js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'app/js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'app/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'app/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'app/js/aos.js' %}"></script>
+  <script src="{% static 'app/js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'app/js/bootstrap-datepicker.js' %}"></script>
+  <script src="{% static 'app/js/jquery.timepicker.min.js' %}"></script>
+  <script src="{% static 'app/js/scrollax.min.js' %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{% static 'app/js/google-map.js' %}"></script>
+  <script src="{% static 'app/js/main.js' %}"></script>
+{% endblock %}
+</body>
+</html>

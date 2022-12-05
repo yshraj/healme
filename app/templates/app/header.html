@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'app/css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/animate.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'app/css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'app/css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'app/css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/jquery.timepicker.css' %}">
+
+    
+    <link rel="stylesheet" href="{% static 'app/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+</head>
+<body>
+<nav class="navbar py-4 navbar-expand-lg ftco_navbar navbar-light bg-light flex-row">
+      <div class="container">
+        <div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
+          <div class="col-lg-2 pr-4 align-items-center">
+            <a class="navbar-brand" href="{% url 'index' %}">Heal<span>me</span></a>
+          </div>     
+        </div>
+      </div>
+      {% if request.session.fname %}
+      <div class="col-md pr-4 d-flex topper">
+         <h6 style="text-align: center;margin-right: 250px">Welcome&nbsp<b>{{request.session.fname}}&nbsp{{request.session.lname}}</b></h6>
+        </div>
+      {% endif %}
+      <div class="col-md pr-4 d-flex topper align-items-right">
+        <input type="text" name="search" placeholder="Search"><button type="submit">Submit</button>
+      </div>
+    </nav>
+
+	  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container d-flex align-items-center">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+        
+        {% if request.session.fname %}
+          <p class="button-custom order-lg-last mb-0"><a href="{% url 'logout' %}" class="btn btn-secondary py-2 px-3">Logout</a></p>
+        {% else %}
+          <p class="button-custom order-lg-last mb-0"><a href="{% url 'login' %}" class="btn btn-secondary py-2 px-3">Login / Signup</a></p>
+        {% endif %}
+	      
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav mr-auto">
+	        	<li class="nav-item active"><a href="{% url 'index' %}" class="nav-link pl-0">Home</a></li>
+	        	<li class="nav-item" style=""><a href="{% url 'doctor' %}" class="nav-link">Doctor</a></li>
+	        	<li class="nav-item"><a href="{% url 'pharmacy' %}" class="nav-link">Pharmacy</a></li>
+            <li class="nav-item"><a href="{% url 'diagnostic' %}" class="nav-link">Diagnostic</a></li>
+            <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+            {% if request.session.fname %}
+            <li class="nav-item"><a href="{% url 'patientappointment' %}" class="nav-link">Appointments</a></li>
+            
+            {% endif %}
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+	  {% block content %}
+	  {% endblock %}
+</body>
+</html>
